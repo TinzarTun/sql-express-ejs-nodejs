@@ -8,6 +8,7 @@ const categoriesRoutes = require("./routes/categoriesRoutes");
 // API
 const userApi = require("./api/UserApi");
 const postApi = require("./api/PostApi");
+const categoryApi = require("./api/CategoryApi");
 const app = express();
 app.use(express.json());
 app.set("view engine", "ejs");
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.use("/api/users", userApi); // API routes
 app.use("/api/posts", postApi); 
+app.use("/api/categories", categoryApi); 
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 app.use("/categories", categoriesRoutes);

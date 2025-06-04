@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+<a href="/posts/create" class="btn btn-success">Create New Post</a>
+<ul>
+  <% if (posts.length > 0) { %> <% posts.forEach(post => { %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <% if (post.photo) { %>
+      <div>
+        <img
+          src="/uploads/<%= post.photo %>"
+          alt="Post Photo"
+          style="width: 300px; height: auto"
+        />
+      </div>
+      <% } %>
+      <h2><%= post.title %></h2>
+      <p>By <%= post.author %> on <%= post.created_at %></p>
+      <p><%= post.content %></p>
+      <a href="/posts/edit/<%= post.id %>" class="btn btn-warning">Edit</a>
+      <form
+        action="/posts/delete/<%= post.id %>"
+        method="POST"
+        style="display: inline"
+      >
+        <button
+          type="submit"
+          class="btn btn-danger"
+          onclick="return confirm('Are you sure you want ot delete this post?')"
+        >
+          Delete
+        </button>
+      </form>
+    </div>
+  </div>
+  <% }) %> <% } else { %>
+  <li>No posts found</li>
+  <% } %>
+</ul>

@@ -68,8 +68,3 @@ npm run dev
 - Copy the test link and open it in your browser
 - Modify and send test requests to simulate CRUD operations
 
----
-
-## 🙌 Author
-
-Made with 💻 by [**Tinzar Tun**](https://github.com/TinzarTun)
